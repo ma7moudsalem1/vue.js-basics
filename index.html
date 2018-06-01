@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div id="app">
+			<!-- First: Printing data from vue data -->
+			<h1>{{ message }}</h1>
+
+			<!-- Second: Control class from vue data -->
+			<h1 v-bind:class="alert_class">{{ alert }}</h1>
+
+			<!-- Third: Show data if the varable is true from vue data -->
+			<h1 v-if="visible">This is show tag.</h1>
+
+			<!-- Fourth: for in list in vue  -->
+			<ul>
+				<li v-for="list in lists">{{ list }}</li>
+			</ul>
+
+			<!-- Fifth: for key & value in list in vue  -->
+			<ul>
+				<li v-for="value in klists">{{ value.lang }}</li>
+			</ul>
+
+			<!-- Sixth: input handling value in vue -->
+			<p>{{ pcontrol }}</p>
+			<input type="text" class="form-control" v-model="pcontrol" />
+
+
+			<!-- Seventh -->
+			<button v-on:click="makeVisibleVarTrue">Change</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+	new Vue ({
+		el : '#app', 
+		data : {
+			message: 'This is main tag.',
+			alert: 'This is alert to control class',
+			alert_class: 'alert alert-success',
+			visible: false,
+			lists: ['php', 'laravel', 'node.js', 'vue.js'],
+			klists: [
+				{lang: 'ar'},
+				{lang: 'en'},
+				{name: 'arabic'}	
+			],
+			pcontrol: 'this text change by input',
+
+		},
+		methods: {
+				makeVisibleVarTrue : function(){
+					this.visible = true;
+				}
+			}
+	});
+	</script>
+</body>
+</html>
