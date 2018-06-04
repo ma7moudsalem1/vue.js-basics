@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vuejs - #9</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="list in lists">
+				{{ list }}
+				<button @click="removeItem(list)">-</button>
+			</li>
+			<li v-if="newItem">{{ newItem }}</li>
+		</ul>
+		<input type="text" placeholder="example: apple" v-model="newItem">
+		<button @click="addItem">+</button>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
